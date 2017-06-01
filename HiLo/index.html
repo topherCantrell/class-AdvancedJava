@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Hi/Lo</title>    
+    </head>
+  
+    <body>
+    
+        <h1>The Hi/Lo Game</h1>     
+        I am thinking of a number between 1 and 100. You guess it!
+                
+        <h2>HIGHER than 42.</h2>
+        <h2>LOWER than 42.</h2>
+        <h2>Invalid guess 'sdfsdf'</h2>
+        <h2>Yes! I was thinking of 42.</h2>
+        
+        <form action="/hilo" method="POST">
+            Your guess: <input type="text" name="guess">
+            <input type="submit" value="Guess">
+        </form>     
+        
+        <form action="/hilo" method="GET">
+            <input type="submit" value="Play Again">
+        </form>     
+        
+    </body>
+
+</html>

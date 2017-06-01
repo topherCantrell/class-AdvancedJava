@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Server Count</title>
+</head>
+
+<body>
+  Button has been clicked <span id="ccount">0</span> times.
+  <p>
+  <input type="button" onCLick="getFromServer()" value="Count up"/>
+</body>
+
+<script>
+
+var xmlHttp;
+ 
+function gotResponse() {
+  if(xmlHttp.readyState==4 && xmlHttp.status==200) {
+    var span = document.getElementById("ccount");
+    span.innerHTML = xmlHttp.responseText;
+  }
+}
+ 
+function getFromServer() {
+  xmlHttp = new XMLHttpRequest();
+  xmlHttp.onreadystatechange = gotResponse;
+  xmlHttp.open("GET", "http://localhost/getValue");
+  xmlHttp.send();
+}
+
+</script>
+
+</html>
