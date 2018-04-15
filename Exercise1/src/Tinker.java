@@ -27,14 +27,13 @@ public class Tinker {
         
         Thread t4 = new Thread(sq);
         t4.start();
-        
-        
+                
         CirclePath p = new CirclePath();
         p.sp = sp;
         
         Thread t = new Thread(p);
-        t.start();
-        
+        t.start();       
+               
         while(true) {
             
             synchronized(p) {

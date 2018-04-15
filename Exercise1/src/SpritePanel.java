@@ -10,33 +10,58 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class SpritePanel extends JPanel {
-    
-    // Scaling factor
-    private static final int SF = 2;
-    
-    // JPanels are serializable, but we don't care here
+	
+	// JPanels are serializable, but we don't care here
     private static final long serialVersionUID = 1L;
     
-    // Avatar colors
-    private static final Color [] COLORS = {
-            Color.BLUE,
-            Color.RED,
-            Color.GREEN,
-            Color.CYAN,
-            Color.PINK,
-            Color.YELLOW,
-            Color.GRAY,
-            Color.MAGENTA,
-    };
-    
-    // Color for the next avatar created (increments and rolls)
-    private int colorCursor;
-    
+    // Implement this interface to provide your own custom shape
+	public interface CustomShape {
+		public void paintComponent(Graphics g, int x, int y);		
+	}
+	
+	// Default shape implementations
+	static class OvalSprite implements CustomShape {
+		@Override
+		public void paintComponent(Graphics g, int x, int y) {
+			g.setColor(Color.BLUE);
+			g.drawOval((x-5)*2, (y-5)*2, 20, 20); 	
+		}		
+	}	
+	static class RectSprite implements CustomShape {
+		@Override
+		public void paintComponent(Graphics g, int x, int y) {
+			g.setColor(Color.RED);
+			g.drawRect((x-5)*2, (y-5)*2, 20, 20);			
+		}		
+	}
+	static class XSprite implements CustomShape {
+		@Override
+		public void paintComponent(Graphics g, int x, int y) {
+			g.setColor(Color.GREEN);
+			g.drawLine((x-5)*2, (y-5)*2, (x+5)*2, (y+5)*2);
+		    g.drawLine((x+5)*2, (y-5)*2, (x-5)*2, (y+5)*2);			
+		}		
+	}
+	static class FillOvalSprite implements CustomShape {
+		@Override
+		public void paintComponent(Graphics g, int x, int y) {
+			g.setColor(Color.CYAN);
+			g.fillOval((x-5)*2, (y-5)*2, 10*2, 10*2);
+		}		
+	}	
+	static class FillRectSprite implements CustomShape {
+		@Override
+		public void paintComponent(Graphics g, int x, int y) {
+			g.setColor(Color.PINK);
+			g.fillRect((x-5)*2, (y-5)*2, 10*2, 10*2);	
+		}		
+	}
+	        
     // Data structure for each sprite ... (x, y) coordinate and color
     private static class Sprite {
         int x;
         int y;
-        Color color;
+        CustomShape shape;
     }    
     
     // Collections of sprites ... mapped to the using thread
@@ -76,35 +101,41 @@ public class SpritePanel extends JPanel {
     @Override
     protected synchronized void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int pos = 0;
         for(Sprite s : sprites.values()) {
-            g.setColor(s.color);            
-            switch(pos%5) {
-            case 0:
-                g.drawOval((s.x-5)*SF, (s.y-5)*SF, 10*SF, 10*SF);                
-                break;
-            case 1:
-                g.drawRect((s.x-5)*SF, (s.y-5)*SF, 10*SF, 10*SF);
-                break;
-            case 2:
-                g.drawLine((s.x-5)*SF, (s.y-5)*SF, (s.x+5)*SF, (s.y+5)*SF);
-                g.drawLine((s.x+5)*SF, (s.y-5)*SF, (s.x-5)*SF, (s.y+5)*SF);
-                break;
-            case 3:
-                g.fillOval((s.x-5)*SF, (s.y-5)*SF, 10*SF, 10*SF);
-                break;
-            case 4:                
-                g.fillRect((s.x-5)*SF, (s.y-5)*SF, 10*SF, 10*SF);
-                break;
-            } 
-            pos++;
-        }
-    }       
-    
+        	s.shape.paintComponent(g, s.x, s.y);
+        }        
+    }    
     
     // Create a new panel and a sweeper thread to go with it
     public SpritePanel() {
         (new Thread(new Sweeper())).start();        
+    }
+    
+    // Assign a custom shape to this thread
+    public synchronized void createSprite(CustomShape shape) {
+    	Sprite sp = new Sprite();
+    	sp.shape = shape;
+    	sprites.put(Thread.currentThread(), sp);
+    }
+    
+    // Pick a default shape if the user doesn't provide one
+    int shapeCursor = -1;    
+    private CustomShape getNextDefaultShape() {
+    	++shapeCursor;
+    	switch(shapeCursor % 5) {
+    	case 0:
+    		return new OvalSprite();
+    	case 1:
+    		return new RectSprite();
+    	case 2:
+    		return new XSprite();
+    	case 3:
+    		return new FillOvalSprite();
+    	case 4:
+    		return new FillRectSprite();
+    		default:
+    			return null;
+    	}    	
     }
     
     // Threads call this to move their sprite on the screen. The first time a thread calls
@@ -113,12 +144,8 @@ public class SpritePanel extends JPanel {
         Sprite sp = sprites.get(Thread.currentThread());
         if(sp==null) {
             // This is a new one ... track a new avatar
-            sp = new Sprite();            
-            sp.color = COLORS[colorCursor];
-            colorCursor++;
-            if(colorCursor>=COLORS.length) {
-                colorCursor = 0;
-            }
+            sp = new Sprite();       
+            sp.shape = getNextDefaultShape();            
             sprites.put(Thread.currentThread(), sp);
         }
         sp.x = x;
@@ -126,19 +153,14 @@ public class SpritePanel extends JPanel {
         this.repaint();
     }
     
-    public synchronized Color getMyColor() {
-        // In case you want to know what color you are
-        Sprite sp = sprites.get(Thread.currentThread());
-        if(sp==null) return null;
-        return sp.color;
-    }
-    
+    // The constructor could do this automatically. But this way the SpritePanel
+    // could be added to other panels or frames or applets.
     public void putPanelInAFrame() {
         // Adds THIS panel to a JFrame on the screen
         JFrame frame = new JFrame("Sprites");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);       
         // The coordinate system is (0,0) - (99,99)
-        this.setPreferredSize(new Dimension(100*SF,100*SF));
+        this.setPreferredSize(new Dimension(100*2,100*2));
         frame.setContentPane(this);
         frame.pack();
         frame.setResizable(false);
