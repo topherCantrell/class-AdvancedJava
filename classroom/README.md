@@ -10,6 +10,7 @@ Each night:
   - 10 minute break
   - 30 minute lab
   
+Materials:
   - Week 1:
   - Week 2:
   - Week 3:
