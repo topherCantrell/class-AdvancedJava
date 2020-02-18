@@ -1,0 +1,219 @@
+; Module 3 Databases
+
+; 4 Overview
+
+A _____ key column is like a pointer to another table.
+    *foreign
+    primary
+    master
+    reference
+
+The values in a _____ key column must be unique.
+     *primary
+     foreign
+     constraint
+     reference
+
+Creating all combinations of rows from multiple tables is called a _____.
+    *join
+    query
+    relationship
+    ordering
+
+A join table allows you to model a _____ relationship.
+    *one to many
+    foreign key
+    circular
+    cartesian
+
+; 8 Derby
+
+The Derby library is written in _____.
+    *Java
+    C++
+    Python
+    SQL
+
+Derby is free but it has a large memory footprint.
+    *FALSE ^ Derby has a small footprint
+
+Derby is shipped with the JDK in the _____ directory.
+    *db
+    lib
+    derby
+    jre
+
+You can run Derby in _____ or _____ mode.
+    *network, embedded
+    sql, xml
+    network, cloud
+    java, c++
+
+Derby authentication is turned OFF by default.
+    *TRUE ^ but you can configure it if you need it
+
+By default Derby accepts connections from remote machines.
+    *FALSE ^ but you can turn that on if you need it
+
+The Derby "ij" client allows you to send _____ commands to the database.
+    *SQL
+    Java
+    scripting
+    compiled
+
+The Eclipse foundation will soon finish a Derby plugin for the IDE.
+    *FALSE ^ Eclipse can talk to Derby now
+
+; 16 SQL Basics
+
+Like in Java, SQL keywords are case sensitive.
+    *FALSE
+
+SQL commands must end with a _____.
+    *semicolon
+    period
+    WHERE clause
+    timeout
+
+To create a table you use the SQL _____ command.
+    *CREATE
+    INSERT
+    SCHEMA
+    MAKE
+
+To add rows to a table use the SQL _____ command.
+    *INSERT
+    ADD
+    CREATE
+    SET
+
+To query rows from a table use the SQL _____ command.
+    *SELECT
+    GET
+    FETCH
+    READ
+
+The asterisk wildcard following the SELECT command means:
+    *SELECT all columns
+    SELECT all rows
+    SELECT all tables
+    SELECT empty columns
+
+To limit the rows the database returns use the SQL _____ clause.
+    *WHERE
+    SELECT
+    wildcard
+    MORE
+
+The UPDATE command changes at most ONE row in the database.
+    *FALSE ^ Be careful
+
+Use the SQL _____ command to join multiple tables.
+    *SELECT ^ list several tables separated by commas
+    JOIN
+    WHERE
+    COMBO
+
+The server will order the returned rows for you if you send the _____ command.
+    *ORDER BY
+    WHERE
+    ASCEND
+    SORTED
+
+A _____ key is unique across all rows in a table.
+    *PRIMARY
+    FOREIGN
+    VARCHAR
+    ENUM
+
+A _____ key references a primary key in another table.
+    *FOREIGN
+    PRIMARY
+    VARCHAR
+    REF
+
+The Derby database can generate primary keys for you.
+    *TRUE
+
+A foreign key cell may not contain the NULL value.
+    *FALSE ^ but you can add a "NOT NULL" constraint if you wish
+
+The Derby database will enforce foreign key constraints.
+    *TRUE ^ the server will do its best to keep the relationships intact
+
+You can add a constraint to a column to ensure the value is greater than zero.
+    *TRUE ^ like with "CHECK (grade>0)"
+
+; 6 JDBC
+When you are done with a database connection you should call _____.
+    *close()
+    flush()
+    end()
+    finalize()
+
+The "getConnection" method of DriverManager requires a paramter giving the database _____.
+    *URL
+    class name
+    owner
+    password
+
+From the "Connection" object you can get a _____.
+    *Statement
+    ResultSet
+    DriverManager
+    Commit
+
+JDBC supports two basic kinds of SQL statements:
+    *Query and Update
+    Batched and Prepared
+    Result and Select
+    None of the above
+
+You can create tables through JDBC.
+    *TRUE ^ you can execute most any SQL command you want
+
+You can avoid SQL Injection by using the:
+    *PreparedStatement
+    ResultSet
+    SafeStatement
+    CompiledStatement
+
+; 3 Transactions 
+
+In JDBC the autocommit feature is turned on by default.
+    *TRUE ^ turn it off to control transactions manually
+
+When you are ready to commit your changes to the database send the _____ command.
+    *commit
+    flush
+    write
+    rollback
+
+If you want to abort your changes to the database send the _____ command.
+    *rollback
+    abort
+    commit
+    rewind
+
+; 3 JUnit
+
+With Test Driven Development you write the _____ first.
+    *test cases
+    java code
+    SQL statements
+    user manual
+
+Eclipse has a JUnit plugin that will show test results visually.
+    *TRUE ^ this ?is a great way to see your test results
+
+
+Annotate a method with _____ to have it run before each test in the class.
+    *@Before
+    @RunWith
+    @Override
+    @Harness
+
+
+
+
+

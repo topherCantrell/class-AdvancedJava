@@ -1,0 +1,200 @@
+; Module 2: Sockets and RMI
+; Lines that start with ';' are comments                
+                
+;Overview    
+To send a message to another program you must know the destination _____ and _____. 
+    *address/port ^ also called "blocked"
+    location/port   
+    port/socket 
+    socket/name 
+                
+The IANA assigns the well-known ports (0 - 1023).   
+    *FALSE ^ ports 1024-49151 are managed by the IANA
+                
+The _____ protocol is like sending letters to a mailbox.    
+    *UDP 
+    TCP 
+    IANA    
+    DNS 
+                
+The _____ protocol forms a persistent connection between programs.  
+    *TCP 
+    UDP 
+    IANA    
+    DNS 
+                
+TCP is generally faster than UDP, but UDP is more reliable. 
+    *FALSE ^ It's the other way around
+                
+;Date Time   
+The java.util.Date holds a timestamp and a timezone.    
+    *FALSE ^ Date has no timezone information
+                
+The date "new Date(105,2,12)" represents _____.   
+    *March 12, 2005 ^ 1900+y and m starts with 0=January
+    February 12, 2005   
+    February 12, 1905   
+    None of the above   
+                
+The Date object holds the number of milliseconds since _____.   
+    *January 1, 1970 ^ This is the "epoch"
+    December 31, 1900   
+    Midnight    
+    January 1, 1900 
+                
+The TimeZone class first appeared in Java 7.    
+    *FALSE ^ It was in the original 1.0 release
+                
+The _____ class appeared in JDK 1.1 to better isolate calendar functionality.   
+    *Calendar    
+    Epoch   
+    DateFormatter   
+    Yoda library    
+                
+The GregorianCalendar makes use of enumerations for field identifiers.  
+    *FALSE ^ Enums were added to the language in JDK 1.5
+                
+Java 8 pulls in a popular library named _____.  
+    *Joda    
+    ModTime 
+    DateUtil    
+    Sidreal 
+                
+Java 8 time and date includes the concept of _____ and _____.   
+    *Periods and Durations   
+    Periods and Formatters  
+    Sequences and Eras  
+    Durations and Sequences 
+                
+The LocalTime class's default constructor creates time "now".   
+    *FALSE ^ LocalTime has no public constructor
+                
+;UDP 
+The OS guarantees your DatagramPacket will be delivered.    
+    *FALSE   
+                
+TCP delivers messages using DatagramPackets.    
+    *FALSE ^ UDP uses DatagramPackets
+                
+This class is used to send and receive DatagramPackets. 
+    *DatagramSocket  
+    ServerSocket    
+    UDPHandler  
+    OutputStream    
+                
+A DatagramPacket has these parts:   
+    *Address, Port, Buffer   
+    Address, Sender 
+    Sender, Receiver    
+    Size, Buffer    
+                
+When a DatagramPacket is received it has the senders address and port filled in.    
+    *TRUE    
+ 
+;TCP               
+The OS guarantees your TCP packet will be delivered.    
+    *FALSE ^ But it will tell you if it can't deliver it.
+                
+The _____ object manages incoming TCP connections.  
+    *ServerSocket    
+    SocketFactory   
+    ClientSocket    
+    RMIServer   
+                
+In order to accept an incoming TCP connection you must call _____.  
+    *accept  
+    connect 
+    getSocket   
+    None of the above   
+                
+To send data over a TCP socket you will need to call _____. 
+    *getOutputStream()   
+    getInputStream()    
+    sendBytes() 
+    deliver()   
+                
+Only one client may connect to a ServerSocket at a time.    
+    *FALSE ^ The OS will queue up connections for you
+                
+A socket can only send data in one direction: server to client. 
+    *FALSE ^ Sockets are bidirectional
+                
+Serialized objects can be written to disk and read back at a later time.    
+    *TRUE    
+                
+In order for the VM to serialize an object it must implement _____. 
+    *Serializable    
+    Streamable  
+    OutputStream    
+    ByteStream  
+                
+Member data can be hidden from serialization with the _____ keyword.    
+    *transient   
+    private 
+    native  
+    protected   
+               
+;RMI 
+RMI stands for _____.   
+    *Remote Method Invocation    
+    Remote Marshal ID   
+    Rapid Method Initialization 
+    None of the above   
+                
+Older versions of Java required you to generate _____ and _____.    
+    *skeletons and stubs These disappeared with modern java releases
+    getters and setters 
+    servers and clients 
+    portals and tubes   
+                
+Remote interfaces must extend _____.    
+    *Remote  
+    Serializable    
+    RMI 
+    Runnable    
+                
+Methods in a Remote interface must specify they throw _____.    
+    *RemoteException 
+    RuntimeException    
+    ConnectionRefused   
+    NotSerializableException    
+                
+The _____ provides an "object name" lookup service. 
+    *RMI Registry    
+    RMI Server  
+    Java VM 
+    Internet ISC    
+                
+;MISC    
+TCP is good for _____ while UDP would be more suited to _____.  
+    *email, streaming music  
+    streaming music, email  
+    web traffic, RMI    
+    Java, C++   
+                
+The IANA manages the list of _____. 
+    *well-known and registered ports 
+    java versions   
+    RMI objects 
+    well-known addresses    
+                
+You can send complicated object graphs over an ObjectStream.    
+    *TRUE    
+                
+TCP stands for _____.   
+    *Transmission Control Protocol   
+    Transmission Content Protocol   
+    Telnet Communication Protocol   
+    None of the above   
+                
+In TCP all data is buffered up until you call flush().  
+    *FALSE ^ The OS can send whenever it wants.
+                
+You can serialize any Java object you can get a pointer to.  
+    *FALSE ^ Only objects that implement Serializable
+                
+The ByteArrayOutputStream allows you to write object to _____.  
+    *byte arrays in memory   
+    disk files  
+    sockets 
+    RMI 

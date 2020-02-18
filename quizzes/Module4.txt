@@ -1,0 +1,243 @@
+; Module 4 Web Tech
+
+; 1
+An HTML element can only have one class identifier.
+     *FALSE ^ You can attach many classes to the same element
+
+An HTML element can only have one id identifier.
+     *TRUE
+
+Many elements in an HTML documents can have the same _____, but the _____ should be unique.
+     *class/id
+     id/document
+     class/format
+     author/site
+
+Use an HTML _____ to post data back to the server.
+     *<form>
+     <post>
+     <div>
+     <table>
+
+With HTML5 the _____ language is the official programming language of the browser.
+     *JavaScript
+     Java
+     CSS
+     Python
+
+A _____ request sends no information in the request payload.
+     *GET
+     POST
+     CSS
+     JavaScript
+
+
+Which of the following is NOT an HTTP verb:
+     *CREATE
+     GET
+     POST
+     DELETE
+
+JavaScript is a limited subset of the Java language.
+     *FALSE ^ The two languages are very different
+
+JavaScript can create, delete, and modify the HTML elements being displayed in the browser.
+     *TRUE
+
+; 10
+JavaScript can be loaded from a separate file or included inline within the HTML document.
+     *TRUE
+
+
+
+; 11
+The WEB-INF directory and the web.xml file are crucial parts of a _____ file.
+     *WAR ^ Web Archive
+     JAR
+     TAR
+     RAR
+
+The Apache Jetty web server is written in _____.
+     *Java
+     JavaScript
+     C++
+     HTML
+
+You can create dynamic web content using Java _____ technology.
+     *Servlet
+     Scriptors
+     Serial
+     Streaming
+
+The Tomcat web server is very popular, but it might be expensive for small applications.
+     *FALSE ^ Apache Tomcat is free
+
+
+; 15
+
+To create a servlet you must extend the _____ interface.
+     *HttpServlet
+     Servlet
+     Tomcat
+     WebStream
+
+You override the _____ method to handle a GET request.
+     *doGet
+     handleGet
+     get
+     None of the above
+
+Your servlet should return status code _____ to tell the client everything was handled correctly.
+     *200 
+     500 
+     404 
+     100
+
+The incoming request parameters can be read from the _____ object.
+     *request
+     response
+     session
+     server
+
+The _____ object contains the headers and content sent back to the requesting client.
+     *response
+     request
+     session
+     server
+
+Cookies are sent to the server in the request parameters.
+     *FALSE ^ They are sent as HTTP headers
+
+; 21
+Session cookies remain in the browser until _____.
+     *the browser shuts down
+     the computer shuts down
+     the timer expires
+     the page is refreshed
+
+The browser asks the server to store all cookies.
+     *FALSE ^ Cookies are stored on the browser
+
+It is possible to hide a cookie from the javascript in the browser.
+     *TRUE ^ Create the cookie with the HttpOnly flag
+
+The web server can automatically track browser sessions using _____ objects.
+     *HttpSession
+     Tracking cookies
+     HashMap
+     POJO
+
+     
+; 22
+JSP allows you to embed _____ within _____.
+     * Java/HTML
+     HTML/Java
+     Servlets/JavaScript
+     JavaScript/Servlets
+
+You can add pure segments of Java code within your JSP pages.
+     *TRUE ^ The code passes straight to the compiler
+
+The JSP processor turns your Java Server Page into a servlet.
+     *TRUE ^ You can even keep the source code around for review
+
+
+
+
+
+; 25
+Reflection allows you to view and change private data in an object.
+     *TRUE ^ This is an important part of the Eclipse debugger
+
+
+The _____ object allows you to create instances of a class.
+     *Constructor
+     Field
+     Class
+     Method
+
+You can use reflection to invoke methods on an object.
+     *TRUE ^ Reflection is more than just information
+
+JUnit uses reflection to find _____ in your code.
+     *annotations
+     bugs
+     security holes
+     documentation
+
+The _____ object lets you view all the information about a single method within an object.
+     *Method
+     Field
+     Class
+     Constructor
+
+The _____ objects lets you view all the information about a single data member within an object.
+     *Field
+     Method
+     Constructor
+     Class
+
+;31
+
+Your code sends logging events to the _____ object.
+     *Logger
+     Appender
+     Layout
+     Console
+
+The Logger uses the _____ object to create the output format.
+     *Layout
+     Format
+     Logger
+     Appender
+
+The _____ object sends the event to its destination e.g. the console.
+     *Appender
+     Format
+     Logger
+     Layout
+
+Which of the following is NOT a log4j event severity:
+     *Critical ^ Fatal, Error, Warn, Info, Debug, and Trace
+     Debug
+     Trace
+     Info
+
+You can tell log4j to reload changes in the configuration file.
+    *TRUE
+
+
+
+;36
+
+How many "do" methods can a single servlet override?
+     *All of them
+     Just doGet or doPost
+     Just doService
+     Just goGet
+
+;37
+A servlet can only return HTML content.
+     *FALSE ^ You can generate any kind of content
+
+;38
+This plugin for Chrome allows you to generate different kinds of HTTP requests:
+     *Postman
+     HTTPGen
+     Locker
+     OmniPost
+
+;39
+Unhandled exceptions from your servlet become responses with status code _____.
+     *500 Internal Server Error
+     404 Not Found
+     200 OK
+     101 Request Failed
+
+;40
+Your servlet's _____ method is called when the servlet object is created.
+     *init
+     destroy
+     start
+     None of the above
+     

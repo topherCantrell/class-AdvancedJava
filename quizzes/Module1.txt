@@ -1,0 +1,196 @@
+; Module 1: Threading and JNI
+; Lines that start with ';' are comments
+                
+;Overview    
+A thread doesn't need CPU time when it is _____.   
+    *waiting ^ also called "blocked"
+    thrashing   
+    joining 
+    forking 
+                
+Java limits you to creating at most 50 threads. 
+    *FALSE ^ there is no fixed limit 
+                
+A computer with multiple CPUs is said to be multi _____.    
+    *core    
+    threaded    
+    functional  
+    dimensional 
+                
+In order to run multiple processes on your computer you must have multiple cores.   
+    *FALSE ^ a single cpu can time-slice between multiple threads
+                
+A _____ occurs when two threads are waiting on each other.  
+    *deadlock    
+    join    
+    race condition  
+    Break Exception 
+                
+;Basics  
+Pick the correct thread "run" method:   
+    *public void run() ^ Use @Override and the compiler will check you
+    protected int run() 
+    static void run()   
+    public void runnable()  
+                
+The "run" method is defined in the _____ interface. 
+    *Runnable    
+    Thread  
+    EntryPoint  
+    System  
+                
+You start a new thread by calling the "run" method. 
+    *FALSE ^  You must go through the thread controller  
+                
+This class acts as a controller for a single thread:    
+    *Thread  
+    Runnable    
+    ThreadMgr   
+    Controller  
+                
+A thread automatically stops when it returns from its "run" method. 
+    *TRUE     
+                
+When does the JVM stop running: 
+    *When all threads have ended 
+    When "main" comes to an end 
+    Only when you call "exit"   
+    When all threads are blocked    
+                
+A thread's priority is fixed when the thread is created.    
+    *FALSE ^  You can raise and lower a thread's priority through its controller  
+                
+The _____ function pauses the current thread for a requested amount of time.    
+    *sleep   
+    pause   
+    hold    
+    yield   
+                
+The _____ method has been deprecated. You should not call it.  
+    *stop ^   You should ask a thread to end itself
+    interrupt   
+    exit    
+    yield   
+                
+The "sleep" method may generate this checked exception:
+    *InterruptedException    
+    NullPointerException    
+    RuntimeError    
+    SleepViolation  
+                
+;Exclusion   
+Each thread has its own _____.  
+    *stack   
+    CPU 
+    heap    
+    virtual machine 
+                
+It is possible to limit a section of code to just one thread. 
+    *TRUE                
+                
+The ReentrantLock has been with Java since the beginning.   
+     *FALSE ^  It was added in 1.5             
+                
+How many times can a single thread acquire the same ReentrantLock?  
+    *No limit ^  That's why it is called "reentrant"
+    Just once   
+    Twice   
+    Once per CPU    
+                
+Before the lock objects were added there was no threading in Java.  
+    *FALSE ^  Threading was built into java from the start
+                
+The "synchronized" keyword takes one parameter: 
+    *the object to lock  
+    the lock count  
+    a boolean   
+    the number of seconds to wait   
+                
+You may use "synchronize" to guard an entire function.  
+    *TRUE       
+                
+Use the _____ method to sleep until a target thread ends.   
+    *join    
+    wait    
+    yield   
+    synchronized    
+                
+These two methods are paired together:  
+    *await/signal ^  The other pair is "wait/notify"
+    wait/signal 
+    yield/notify    
+    sleep/signal    
+                
+This type of object is created by a lock's "newCondition" method:   
+    *Condition   
+    Monitor 
+    Sync    
+    Thread  
+                
+You must own the "lock" before you can call "await" or "notify".    
+    *TRUE    
+                
+These threading methods have been built into java from the start:   
+    *synchronized, wait, notify  ^ These are part of the Object base class for all objects
+    lock, unlock, await, signal 
+    run, signal, yield, unlock  
+    await, notify   
+                
+This construct allows us to reuse threads instead of creating and destroying them on the fly.   
+    *Thread Pool 
+    Thread Collection   
+    Executive   
+    RecycleBin  
+                
+;JNI 
+The body of a _____ method is written in platform-specific code.    
+    *native  
+    protected   
+    system  
+    syncrhonized    
+                
+You can mix native and pure-java methods in the same class. 
+    *TRUE       
+                
+Native methods are often used when you need:    
+    *all of the above    
+    access to hardware  
+    to use existing code    
+    high performance    
+                
+You can use the same native code for every platform.    
+    *FALSE ^  Each platform has its own set of native instructions  
+                
+This JDK tool automatically creates C/C++ header files: 
+    *javah   
+    jnih    
+    javac   
+    nativeh 
+                
+The "loadLibrary" method requires the complete name of the native shared library.   
+    *FALSE ^  You do NOT specify the file extension
+                
+You cannot pass parameters to a native method.  
+    *FALSE      
+                
+Your native code can create object in the calling JVM.  
+    *TRUE ^  Native code can do everything pure-java code can  
+                
+Your native code has access to the "this" pointer.  
+    *TRUE  ^  It is passed to the native function
+                
+;Misc    
+Code that is prepared to handle multiple threads is called: 
+    *thread-safe 
+    a java bean 
+    synchronized    
+    multi-core  
+            
+Two threads can walk on each others' local variables.   
+    *FALSE 
+                
+The "new" lock objects allow you to request priority _____. 
+    *fairness ^ This is just a suggestion ... not a demand.
+    inversion   
+    control 
+    shipping    

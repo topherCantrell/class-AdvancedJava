@@ -1,0 +1,229 @@
+; Module 5 Swing
+
+Swing uses _____ to draw the graphical components.
+     *Java
+     C++
+     Python
+     Objective C
+
+These are the graphical elements the user interacts with:
+     *Components
+     Layout Managers
+     Containers
+     AWT
+
+These are the graphical elements that contain other components:
+     *Containers
+     Layout Managers
+     Components
+     AWT
+
+These objects control the size and placement of graphical elements:
+     *LayoutManagers
+     Containers
+     Components
+     AWT
+
+The 'M' in MVC stands for:
+     *Model
+     Machine
+     Meta
+     Modern     
+
+;6
+
+This component is a simple push-button:
+     *JButton
+     JLabel
+     JPushButton
+     JClickInput
+
+This component is a simple string of text:
+     *JLabel
+     JPanel
+     JArea
+     JTextLine
+
+Call _____ to attach a string to a component that appears when the user hovers over it.
+     *setToolTipText
+     setHover
+     setText
+     setMnemonic
+
+The numeric value in the JTextField constructors is:
+     *Number of characters
+     Number of pixels
+     Percent height
+     Font size
+
+Call setEnabled(true) to put a check mark in a JCheckBox.
+     *FALSE ^ Call setSelected(true)
+
+;11
+
+Instances of this component work together to allow the user to pick one thing:
+     *JRadioButton
+     JCheckBox
+     JChoice
+     JPicker
+
+Use the _____ to group JRadioButtons together:
+     *ButtonGroup
+     JGroup
+     JComboBox
+     JFrame
+
+This component provides a drop down menu to select one item:
+     *JComboBox
+     JRadioButton
+     JChoice
+     JChooser
+
+This component allows the user to view/edit a multi-line area of text:
+     *JTextArea
+     JLabel
+     JTextField
+     None of the above
+
+The JOptionPane class has static methods for creating popup dialogs.
+     *TRUE
+
+
+;16
+
+You add JMenuBar elements directly to a:
+     *JFrame
+      JMenu
+      JPanel
+      MenuGroup
+
+You can add JMenu objects to JMenu objects to create multi-level menus.
+     *TRUE
+
+;18
+
+This layout manager does not resize its components at all:
+     *JFlowLayout
+     JGridLayout
+     JBorderLayout
+     JPanel
+
+This layout manager resizes components to fit in a two dimensional grid.
+     *JGridLayout
+     JBorderLayout
+     JFlowLayout
+     JTableLayout
+
+;20
+
+A container can be used as a component inside another container.
+     *TRUE ^ You nest containers to build a desired layout
+
+This component wraps another component in scroll bars:
+     *JScrollPane
+     JPanel
+     JScrollable
+     JBar
+
+This attribute is the natural size of a component if unchanged by a layout manager:
+     *Preferred Size
+     Location
+     Current Size
+     Bounds
+
+;23
+
+This method call will prevent a JFrame from being resized by the user:
+     *setResizable(false)
+     setFixedSize(true)
+     pack()
+     setSize(0,0)
+
+This method sets the JFrame's content area:
+     *setContentPane()
+     setContainer()
+     add()
+     pack()
+
+The "add" method is part of the _____ interface:
+     *Container
+     Layout Manager ^ Containers hold the components. The layout managers size them.
+     Frame
+     Component
+
+To add a border you must create an instance of BorderFactory.
+     *FALSE ^ BorderFactory has static methods that create borders
+
+;27
+To add a new tab to the JTabbedPane you call:
+     *addTab()
+     setTabs()
+     add()
+     addPanel()
+
+To create a split between a left component and a right component use:
+     *JSplitPane.HORIZONTAL_SPLIT
+     JSplitPane.VERTICAL_SPLIT
+     JTabbedPane
+     GridLayout
+
+;29
+You must implement the _____ interface to catch events from a JButton.
+     *ActionListener
+     ChangeHandler
+     ClickEvent
+     Runnable
+
+The _____ method attaches a listener to a JButton.
+     *addActionListener()
+     setActionEvent()
+     setButtonHandler()
+     addClickHandler()
+
+The default behavior for the methods in MouseListener is to "do nothing".
+     *FALSE ^ You must override all methods in an interface even you don't need them
+
+;32
+Event listeners are passed information about where the event occurred.
+     *TRUE
+
+The JTextField component calls your _____ listener when the ENTER key is pressed.
+     *ActionListener
+     SubmitListener
+     OnEnter
+     ValueEnetered
+
+;34
+You can add multiple listeners to one component.
+     *TRUE
+
+You can add the same listener to multiple components.
+     *TRUE
+
+This java feature allows you to better control the scope of your listeners:
+     *Inner classes
+     Threads
+     Layout managers
+     Private inheritance
+
+;37
+The JComboBox has internal data storage if you would rather not create a model.
+     *TRUE ^ the internal list is perfect for simple picks
+
+The JTable uses this kind of data model:
+     *TableModel
+     DataGrid
+     Synchronous
+     MVC
+
+;39
+Lambdas appeared with Java 1.7.
+     *FALSE ^ Lambdas are new in Java 1.8
+
+Before creating your own functional interfaces you should check to see if the library has an appropriate one defined in:
+     *java.util.function
+     javax.lambda
+     java.streams
+     java.predicate
+
+     
