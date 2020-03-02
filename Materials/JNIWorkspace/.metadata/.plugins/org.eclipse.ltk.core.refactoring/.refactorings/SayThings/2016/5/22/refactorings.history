@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;libSayThings.dll&apos; to &apos;Speaker&apos;&#x0D;&#x0A;- Original project: &apos;SayThings&apos;&#x0D;&#x0A;- Destination element: &apos;Speaker&apos;&#x0D;&#x0A;- Original element: &apos;libSayThings.dll&apos;" description="Copy file" element1="Debug/libSayThings.dll" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1464018639519" target="/Speaker" units="0" version="1.0"/>
-</session>
