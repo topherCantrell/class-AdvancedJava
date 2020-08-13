@@ -1,2 +1,1 @@
-set path=%path%;"c:\Program Files\Java\jdk1.8.0_45\db\bin"
-
+set path=%path%;"c:\Program Files\Java\jdk-11.0.3\db\bin"
