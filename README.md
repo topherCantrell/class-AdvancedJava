@@ -6,6 +6,8 @@ Files for the UAH course
 Java continues to evolve over the years, and some of the technology changes or becomes obsolete. I will
 update the course materials with the changes as I can. But until I do, I'll list them here.
 
+https://en.wikipedia.org/wiki/Java_version_history
+
 ## RMI
 
 Java 9 introduced the [concept of Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html) that improves security, but requires changes to the RMI code in this course. I need to add a recording on these modules, and I need to update the RMI code. Until then you must use an earlier Java version. Your UAH VM has a working version of Java.
