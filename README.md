@@ -24,3 +24,5 @@ For my version of JDK and Derby this is what I did:
   - Opened the windows File Explorer, right clicked the ZIP file, and extracted it to the desktop
   - Renamed the new folder on the desktop to just "db"
   - Used the File Explorer to copy the "db" folder to "C:\Program Files\Java\jdk-11.0.3"
+
+A added the "derbyclient.jar" and the "derbynet.jar" to connect to the DB.
